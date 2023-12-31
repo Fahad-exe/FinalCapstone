@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct FinalCapstoneApp: App {
+    @AppStorage("45") var Entered : Bool = false
+    @AppStorage("isDarkMode") var isDarkMode = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+         
+                ProviderRootView()
+                    .preferredColorScheme(isDarkMode ? .dark : .light)
+            
         }
     }
 }

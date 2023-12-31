@@ -1,0 +1,86 @@
+/* 
+  Localizable.strings
+  FinalCapstone
+
+  Created by Fahad Matlagitu on 23/12/2023.
+  
+*/
+"EnableNotification" = "تفعيل التنبيهات";
+"Showreminder" = "عرض التذكير";
+"TurnOffCamera" = "إطفاء الكاميرا عند الإتصال";
+"Languages" = "اللغة";
+"ChangeLanguage" = "تغيير اللغة";
+"Password" = "كلمة السر";
+"YouReset" = "يمكنك إعادة تعيين كلمة المرور الخاصة بك";
+"RESETPASSWORD" = "تغيير كلمة السر";
+"MyBalance" = "رصيدي";
+"Leaderboard" = "المتصدرين";
+"Settings" = "إعدادات";
+"DarkMode" = "الوضع المظلم";
+"About" = "معلومات عنا";
+"Logout" = "تسجيل خروج";
+"TotalHours" = "عدد ساعات العمل";
+"TasksCompleted" = "المهام المتكملة";
+"Date" = "تاريخ";
+"Today" = "اليوم";
+"ThisWeek" = "الإسبوع";
+"ThisMonth" = "الشهر";
+"Home" = "Home";
+"Task" = "Tasks";
+"Camera" = "Camera";
+"Chat" = "Chat";
+"Profile" = "Profile";
+
+
+"get_things_done" = "انجز الأمور";
+"task_management" = "احصل على إدارة مهام سهلة مع جميع المعلومات التي تحتاج إليها";
+"work_support" = "احصل على مساعدة لدعم عملك من خلال مكتبة المعرفة";
+"get_paid" = "احصل على إنجاز كل شيء واحصل على أجرك";
+"lets_go" = "لنذهب";
+"enter_email" = "أدخل بريدك الإلكتروني";
+"enter_password" = "أدخل كلمة المرور";
+"login" = "تسجيل الدخول";
+"forgot_password" = "هل نسيت كلمة المرور؟";
+"no_account_click_here" = "ليس لديك حساب؟ انقر هنا!";
+"login_button" = "تسجيل الدخول";
+"enter_email" = "أدخل بريدك الإلكتروني";
+"enter_password" = "أدخل كلمة المرور الخاصة بك";
+"register_button" = "تسجيل";
+"my_status" = "حالتي";
+"active" = "نشط";
+"not_active" = "غير نشط";
+"total_work_time" = "إجمالي وقت العمل";
+"available_tasks" = "المهام المتاحة";
+"welcome" = "مرحبًا، %@";
+"notifications" = "الإشعارات";
+"add_new_order" = "هل ترغب في طلب خدمة؟ اضغط على زر + أعلاه لإضافة طلب جديد";
+"demi" = "ديمي";
+"replied_message" = "ردّ على رسالتك: ما الوقت الذي تخطط للوصول في صيانة.";
+"salman" = "سلمان";
+"payment_completed" = "تم الدفع. يرجى التحقق من الرصيد في صفحة الملف الشخصي.";
+"system" = "النظام";
+"task_canceled" = "ألغى نواف المهمة. ابحث عن مهمة أخرى.";
+"system" = "النظام";
+"yesterday" = "آمس";
+"nawaf" = "نواف آلغى الطلب";
+"service_type" = "نوع الخدمة: %@";
+"show_details" = "عرض التفاصيل";
+"unit_information" = "معلومات الوحدة";
+"customer_information" = "معلومات العميل";
+"customer_note" = "ملاحظات العميل";
+"take_task" = "تأخذ المهمة";
+"enter_service_type" = "أدخل نوع الخدمة التي تريدها";
+"describe_problem" = "صف مشكلتك:";
+"enter_address" = "أدخل عنوانك الوطني:";
+"use_map" = "أو استخدم الخريطة:";
+"order" = "طلب";
+"task_confirmation_message" = "تم! يمكنك الآن البدء في العمل على المهمة";
+"dismiss_button" = "تجاهل";
+"unit_information" = "معلومات الوحدة";
+"update_task" = "تحديث المهمة";
+"task_completion_message" = "تم! العمل اكتمل.";
+"task_complete" = "اكتمل العمل?";
+"work_rate" = "التقييم";
+"feedback_provider" = "تقييمك للعميل ومدى تجاوبه؟";
+"feedback_consumer" = "رآيك بمستوى خدمة الفني؟";
+"finish" = "انهاء";

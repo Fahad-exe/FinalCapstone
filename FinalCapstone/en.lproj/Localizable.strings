@@ -1,0 +1,85 @@
+/* 
+  Localizable.strings
+  FinalCapstone
+
+  Created by Fahad Matlagitu on 23/12/2023.
+  
+*/
+
+"EnableNotification" = "Enable Notification";
+"Showreminder" = "Show Reminder";
+"TurnOffCamera" = "Turn off camera when start a video call";
+"Languages" = "Languages";
+"ChangeLanguage" = "CHANGE LANGUAGE";
+"Password" = "Password";
+"YouReset" = "You can reset your password if you want or using pin";
+"RESETPASSWORD" = "RESET PASSWORD";
+"MyBalance" = "My Balance";
+"Leaderboard" = "Leaderboard";
+"Settings" = "Settings";
+"DarkMode" = "Dark Mode";
+"About" = "About";
+"Logout" = "Log out";
+"TotalHours" = "Total Work Hours";
+"TasksCompleted" = "Tasks Completed";
+"Date" = "Date";
+"Today" = "Today";
+"ThisWeek" = "This Week";
+"ThisMonth" = "This Month";
+"Home" = "Home";
+"Task" = "Tasks";
+"Camera" = "Camera";
+"Chat" = "Chat";
+"Profile" = "Profile";
+
+"get_things_done" = "Get Things Done";
+"task_management" = "Get easy managing tasks with all information you need";
+"work_support" = "Get help to support your work with knowledge library";
+"get_paid" = "Get everything done and get paid";
+"lets_go" = "Let's Go";
+"enter_email" = "Enter your email";
+"login" = "Login";
+"forgot_password" = "Forgot password?";
+"no_account_click_here" = "Don't have an account? Click Here!";
+"enter_email" = "Enter your email";
+"enter_password" = "Enter your password";
+"register_button" = "Register";
+"my_status" = "My Status";
+"active" = "Active";
+"not_active" = "Not Active";
+"total_work_time" = "Total Work Time";
+"available_tasks" = "Available Tasks";
+"welcome" = "Welcome, %@";
+"notifications" = "Notifications";
+"add_new_order" = "Want to order a service? Press on the + button above to add new order";
+"welcome" = "Welcome, %@";
+"demi" = "Demi";
+"replied_message" = "Replied your message: What time do you plan to arrive for the maintena.";
+"salman" = "Salman";
+"payment_completed" = "Payment completed. Please check the balance in the profile page.";
+"system" = "System";
+"task_canceled" = "Nawaf has canceled the task. Search for another.";
+"system" = "System";
+"yesterday" = "Yesterday";
+"nawaf" = "Nawaf has canceled the task.";
+"service_type" = "Service Type: %@";
+"show_details" = "Show Details";
+"unit_information" = "UNIT INFORMATION";
+"customer_information" = "CUSTOMER INFORMATION";
+"customer_note" = "CUSTOMER NOTE";
+"take_task" = "Take Task";
+"enter_service_type" = "Enter type of service you want";
+"describe_problem" = "Describe your problem:";
+"enter_address" = "Enter your national address:";
+"use_map" = "Or use the map:";
+"order" = "Order";
+"task_confirmation_message" = "Done! You can now start working on the task";
+"dismiss_button" = "Dismiss";
+"unit_information" = "UNIT INFORMATION";
+"update_task" = "Update Task";
+"task_completion_message" = "It’s Done!.";
+"task_complete" = "Task Complete?";
+"work_rate" = "Work Rate";
+"feedback_provider" = "Feedback about the consumer";
+"feedback_consumer" = "Give us your opinion about the service";
+"finish" = "Finish Task";
