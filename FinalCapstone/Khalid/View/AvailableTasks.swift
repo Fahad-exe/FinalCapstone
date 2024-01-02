@@ -5,15 +5,15 @@ struct AvailableTasks: View {
     @StateObject var vm = ViewModel()
     
     @Environment(\.colorScheme) var colorScheme
-
+    
     var body: some View {
-        NavigationView{
+        
+        
+        VStack(alignment: .leading){
+            Text(NSLocalizedString("available_tasks", comment: ""))
+                .font(.headline)
             
-            VStack(alignment: .leading){
-                Text(NSLocalizedString("available_tasks", comment: ""))
-                    .font(.headline)
-                
-
+            
             NavigationLink(destination: TaskDetailsView()) {
                 
                 ForEach(vm.service, id: \.id) { services in
@@ -59,16 +59,18 @@ struct AvailableTasks: View {
                         }
                     }
                     .padding()
-                    .background(Color("hdr"))
-                    .cornerRadius(18)
+                    .frame(width: 327, height: 200)
+                    .background(RoundedRectangle(cornerRadius: 16).fill(.dashclr).shadow(radius: 1))
+                    .padding()
                 }
             }
-        }
         }
         .onAppear {
             vm.fetchConsumerData()
             vm.fetchProviderData()
             vm.fetchServiceData()
+            
         }
     }
+    
 }

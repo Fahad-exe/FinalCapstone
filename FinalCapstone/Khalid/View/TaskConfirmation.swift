@@ -10,7 +10,7 @@ struct TaskConfirmation: View {
         
         ZStack{
             
-            TaskDetailsView().opacity(0.1)
+            TaskDetailsView().opacity(0.04)
             
             VStack{
                 Image("Image 1")
@@ -26,13 +26,13 @@ struct TaskConfirmation: View {
                 Button(NSLocalizedString("dismiss_button", comment: "")) {
                     presentationMode.wrappedValue.dismiss()
                 }
-                .foregroundStyle(Color.gray)
+                .foregroundStyle(Color.white)
                 .padding(.vertical, 5)
                 
             }
             .frame(maxWidth: .infinity)
             .frame(height: 522)
-            .background(Color("bck"))
+            .background(Color(.BK))
             .cornerRadius(18)
             .padding()
         }

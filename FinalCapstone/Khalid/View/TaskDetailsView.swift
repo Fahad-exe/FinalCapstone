@@ -6,18 +6,19 @@ struct TaskDetailsView: View {
     @StateObject var manager = LocationManager()
     @StateObject var vm = ViewModel()
     @Environment(\.colorScheme) var colorScheme
-    
+    @State var customerName: String?
+    @State var serviceName: String?
+    @State var servicePrice: Int?
+    @State var serviceStatus: String?
+    @State var serviceDesc: String?
     @State private var showConfirmation = false
     
     var body: some View {
-        NavigationView{
             ZStack{
                 Color(colorScheme == .light ? Color("bck") : Color("bck"))
                     .ignoresSafeArea()
                 
                 ScrollView{
-                    ForEach(vm.consumer, id: \.id) { consumers in
-                        
                         VStack(alignment: .leading){
                             Text(NSLocalizedString("customer_information", comment: ""))
                                 .foregroundStyle(Color.gray)
@@ -28,7 +29,7 @@ struct TaskDetailsView: View {
                                     NavigationLink {
                                         DashBoardView()
                                     } label: {
-                                        Text("\(consumers.name)")
+                                        Text("\(customerName ?? "nill")")
                                             .foregroundStyle(colorScheme == .light ? .black : .white)
                                     }
 
@@ -39,27 +40,26 @@ struct TaskDetailsView: View {
                             .font(.callout)
                             .foregroundStyle(colorScheme == .light ? .black : .white)
                         }
-                    }
+                    
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(Color("hdr"))
                     .padding(.horizontal)
                     
-                    ForEach(vm.service, id: \.id) { services in
                         
                         VStack(alignment: .leading){
                             
                             HStack(alignment: .top){
-                                Text("\(services.serviceName)")
+                                Text("\(serviceName ?? "Cannot find")")
                                     .font(.callout)
                                     .foregroundStyle(Color.gray)
                                 
                                 Spacer()
                                 
                                 HStack{
-                                    Text("\(services.price) SAR")
+                                    Text("\(servicePrice ?? 000) SAR")
                                     
-                                    Text("\(services.status)")
+                                    Text("\(serviceStatus ?? "not found")")
                                         .padding(.vertical, 3)
                                         .padding(.horizontal, 5)
                                         .background(Color("statusColor"))
@@ -70,14 +70,14 @@ struct TaskDetailsView: View {
                             Text(NSLocalizedString("customer_note", comment: ""))
                                 .foregroundStyle(Color.gray)
                             
-                            Text("\(services.description)")
+                            Text("\(serviceDesc ?? "cannot find description")")
                                 .foregroundStyle(colorScheme == .light ? .black : .white)
                         }
                         .padding()
                         .background(Color("hdr"))
                         .cornerRadius(10)
                         .padding(.horizontal)
-                    }
+                    
                     
                     VStack(alignment: .leading){
                         Text(NSLocalizedString("unit_information", comment: ""))
@@ -95,7 +95,8 @@ struct TaskDetailsView: View {
                         
                         
                         Map(coordinateRegion: $manager.region, showsUserLocation: true)
-                            .frame(width: .infinity, height:  300)
+                            .frame(width: .infinity)
+                            .frame(height:  300)
                             .cornerRadius(10)
                     }
                     .padding()
@@ -121,18 +122,18 @@ struct TaskDetailsView: View {
                     .padding(.horizontal)
                 }
             }
+            .onAppear {
+                vm.fetchConsumerData()
+                vm.fetchProviderData()
+                vm.fetchServiceData()
+            }
             if showConfirmation {
                 TaskConfirmation()
             }
         }
-        .onAppear {
-            vm.fetchConsumerData()
-            vm.fetchProviderData()
-            vm.fetchServiceData()
-        }
+        
     }
-}
 
 #Preview {
-    TaskDetailsView()
+    TaskDetailsView(customerName: "Hassan", serviceName: "Repair", servicePrice: 30, serviceStatus: "Complete", serviceDesc: "I need help")
 }

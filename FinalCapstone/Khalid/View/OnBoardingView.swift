@@ -8,13 +8,13 @@ struct Onbording: Identifiable{
 
 let images: [Onbording] = [
     Onbording(
-        image: "Image1",
+        image: "Image 1",
         title: "Get easy managing tasks with all information you need"),
     Onbording(
-        image: "Image2",
+        image: "Image 2",
         title: "Get help to support your work with knowledge library"),
     Onbording(
-        image: "Image3",
+        image: "Image 3",
         title: "Get everything done and get paid"),
 ]
 
@@ -24,14 +24,15 @@ struct OnBoardingView: View {
     @State var current = 0
     @State var isCliced: Bool = false
     @Binding var Entered: Bool
-    @State var isCliced2: Bool = false
+    
+    
     var body: some View {
-        if isCliced2 {
-            ProviderRootView()
-            //Text("hh")
-        }else{
-            if Entered == false {
-                NavigationView {
+        VStack{
+            if isCliced {
+                ProviderRootView()
+                
+            }else{
+                if Entered == false {
                     ZStack {
                         Color((colorScheme == .light ? "bck" : "bck"))
                             .ignoresSafeArea()
@@ -75,9 +76,10 @@ struct OnBoardingView: View {
                             }
                             
                             if current == 2 {
-                                
-                                NavigationLink(destination: SignIN())
-                                {
+                                Button(action: {
+                                    Entered.toggle()
+                                    isCliced.toggle()
+                                }, label: {
                                     Text(NSLocalizedString("lets_go", comment: ""))
                                         .padding()
                                         .foregroundColor(.white)
@@ -87,13 +89,15 @@ struct OnBoardingView: View {
                                                 .foregroundColor(Color.orange)
                                         )
                                         .padding()
-                                }
+                                })
+                                .navigationBarBackButtonHidden(true)
                                 .padding(.horizontal)
                             }
                             
                             Spacer()
                         }
                     }
+                    
                 }
             }
         }

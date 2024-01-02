@@ -8,7 +8,7 @@
 import SwiftUI
 import Charts
 
-struct ProfileView: View {
+struct CustomerProfileView: View {
     @Environment (\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("isDarkMode") var isDarkMode = false
@@ -20,88 +20,24 @@ struct ProfileView: View {
     var body: some View {
         ScrollView{
             VStack{
-                HStack{
-                    ForEach(vm.provider, id: \.id) { providers in
-                        Image("provider")
-                            .resizable().aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                ForEach(vm.consumer) { consumers in
+                    VStack{
+                        Image("consumer")
+                            .resizable().aspectRatio(contentMode: .fit)
                             .frame(width: 80, height: 80)
-                            .background(Circle().fill(.clear).stroke(.gray,lineWidth:1).frame(width: 80, height: 80))
-                        VStack{
-                            Text(providers.name)
-                                .fontWeight(.bold)
-                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,alignment:.leading)
-                                .padding(.horizontal)
-                            Text("ID \(providers.id)")
-                                .font(.footnote)
-                                .foregroundStyle(.gray)
-                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,alignment:.leading)
-                                .padding(.horizontal)
-                            HStack{
-                                Text(providers.profession)
-                                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,alignment:.leading)
-                                    .padding(.horizontal)
-                                Image(systemName: "star.fill")
-                                    .foregroundStyle(.yellow)
-                                Text("4.7")
-                            }
-                        }
+                            .padding(.top,16)
+                            .foregroundStyle(.invertedBK)
+                        Text(consumers.name)
+                            .foregroundStyle(.invertedBK)
+                        Text(consumers.address)
+                            .foregroundStyle(.invertedBK)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal)
                     }
+                    .padding(.top)
+                    .frame(idealWidth: 400,maxWidth: .infinity, maxHeight: .infinity)
+                    .background(UnevenRoundedRectangle(cornerRadii: RectangleCornerRadii(bottomLeading: 16,bottomTrailing:16)).fill(.dashclr).shadow(radius: 3,y:10))
                 }
-                .padding()
-                VStack{
-                    Menu{
-                        Picker(selection:$sort, label: Text("Date")){
-                            Text("Today").tag(0)
-                            Text("ThisWeek").tag(1)
-                            Text("ThisMonth").tag(2)
-                        }
-                    } label: {
-                        HStack {
-                            Text("Date")
-                            Image(systemName: "arrow.down")
-                        }
-                    }
-                    .foregroundStyle(.white)
-                    .fontWeight(.semibold)
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,alignment: .leading)
-                    .menuOrder(.fixed)
-                    .padding(8)
-                    HStack{
-                        Text("18")
-                            .foregroundStyle(.white)
-                        Text("TotalHours")
-                            .foregroundStyle(.white)
-                        Spacer()
-                        Text("10")
-                            .foregroundStyle(.white)
-                        Text("TasksCompleted")
-                            .foregroundStyle(.white)
-                    }
-                    Chart {
-                        ForEach(ProfileData) { d in
-                            
-                            BarMark(x: .value("Day", d.day, unit: .day), y: .value("Hours", d.hours),width: 8)
-                                .foregroundStyle(.white)
-                            
-                            
-                        }
-                        
-                    }
-                    .chartYAxis{
-                        AxisMarks(stroke: StrokeStyle(lineWidth: 0))
-                    }
-                    .chartXAxis{
-                        AxisMarks(stroke: StrokeStyle(lineWidth: 0))
-                    }
-                    .chartYAxis(.hidden)
-                    
-                    
-                    
-                }
-                .frame(width: 327, height: 200)
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 16).fill(.orange))
-                // End of Charts
                 
                 VStack{
                     Button(action: {
@@ -223,5 +159,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView()
+    CustomerProfileView()
 }

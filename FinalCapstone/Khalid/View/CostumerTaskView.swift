@@ -7,7 +7,7 @@ struct CostumerTaskView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        NavigationView{
+        
             ScrollView{
                     
 
@@ -188,7 +188,7 @@ struct CostumerTaskView: View {
                         }
                     }
                 }
-            }
+            
         
         .onAppear {
             vm.fetchConsumerData()

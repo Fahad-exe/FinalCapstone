@@ -36,9 +36,9 @@ struct CustomerRootView: View {
                                 
                             }
                             .tag(2)
-                        ChatListView()
+                        MapView()
                             .tabItem {
-                                Image(systemName: "message")
+                                Image(systemName: "storefront")
                                 
                             }
                             .tag(3)

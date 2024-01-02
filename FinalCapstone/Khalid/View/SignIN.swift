@@ -83,6 +83,7 @@ struct SignIN: View {
                                 .foregroundColor(Color.orange))
                         .padding()
                 }
+                .navigationBarBackButtonHidden(true)
                 .padding(.horizontal)
                 }
         }

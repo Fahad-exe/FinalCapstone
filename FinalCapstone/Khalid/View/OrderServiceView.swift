@@ -26,6 +26,7 @@ struct OrderServiceView: View {
                     Text(NSLocalizedString("enter_service_type", comment: ""))
                         .font(.callout)
                     TextField("(Repairs, Electronics, ...etc.)", text: $serviceName)
+                        .padding()
                         .frame(maxWidth: .infinity)
                         .frame(height: 50)
                         .background(Color("hdr"))
@@ -34,13 +35,14 @@ struct OrderServiceView: View {
                     Text(NSLocalizedString("describe_problem", comment: ""))
                         .font(.callout)
                     TextField("(breif decription of your problem)", text: $serviceDescription)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 150)
+                        .padding([.horizontal,.top])
+                        .frame(maxWidth: .infinity,idealHeight:150, maxHeight:.infinity,alignment:.top)
                         .background(Color("hdr"))
                         .cornerRadius(18)
                     
-                    Text(NSLocalizedString("enter_address", comment: ""))
-                    TextField(" ", text: $serviceAddress)
+                    Text(NSLocalizedString("enter_address", comment: " "))
+                    TextField("Enter_your_address", text: $serviceAddress)
+                        .padding(.horizontal)
                         .frame(maxWidth: .infinity)
                         .frame(height: 50)
                         .background(Color("hdr"))
@@ -68,14 +70,7 @@ struct OrderServiceView: View {
                         .cornerRadius(10)
                         .padding(.horizontal)
                 }
-                .onTapGesture(perform: {
-                    NavigationLink {
-                        TaskConfirmation()
-                    } label: {
-                        Text("")
-                    }
-
-                })
+                
                
             }
         }
