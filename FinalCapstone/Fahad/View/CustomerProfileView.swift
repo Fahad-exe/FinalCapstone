@@ -32,7 +32,7 @@ struct CustomerProfileView: View {
                         Text(consumers.address)
                             .foregroundStyle(.invertedBK)
                             .multilineTextAlignment(.center)
-                            .padding(.horizontal)
+                            .padding([.horizontal,.bottom])
                     }
                     .padding(.top)
                     .frame(idealWidth: 400,maxWidth: .infinity, maxHeight: .infinity)

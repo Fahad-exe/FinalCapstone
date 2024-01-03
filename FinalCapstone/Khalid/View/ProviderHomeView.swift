@@ -17,63 +17,43 @@ struct ProviderHomeView: View {
                 
                 ProviderStatus()
                 
-                VStack(){
+                VStack{
                     Text(NSLocalizedString("available_tasks", comment: ""))
                         .font(.headline)
-                    
+                        .padding()
                     if pickedNumber == nil {
-                        VStack{
-                            ForEach(vm.service, id: \.id) { services in
-                                ForEach(vm.consumer,id:\.id){ consumers in
-                                    NavigationLink(destination: TaskDetailsView( customerName: consumers.name, serviceName: services.serviceName, servicePrice: services.price, serviceStatus: services.status, serviceDesc: services.description)) {
-                                        
-                                        VStack{
-                                            HStack(alignment: .top){
-                                                Text("\(services.serviceName)")
-                                                    .font(.callout)
-                                                    .foregroundStyle(Color.gray)
-                                                
-                                                Spacer()
-                                                
-                                                HStack{
-                                                    Text("\(services.price) SAR")
-                                                    
-                                                    Text("\(services.status)")
-                                                        .padding(.vertical, 3)
-                                                        .padding(.horizontal, 5)
-                                                        .foregroundStyle(Color.white)
-                                                        .background(Color.cyan)
-                                                        .cornerRadius(10)
-                                                }
-                                                .foregroundStyle(colorScheme == .light ? .black : .white)
-                                            }
-                                            
-                                            Text("\(services.description)")
-                                                .foregroundStyle(colorScheme == .light ? .black : .white)
+                        VStack {
+                            Text("Open_Tasks")
+                                .foregroundStyle(.black.opacity(0.4))
+                                .padding()
+                                .frame(maxWidth: .infinity,alignment: .leading)
+                            ForEach(vm.service){ services in
+                                if services.status == "Open"{
+                                    VStack{
+                                        HStack{
+                                            Text("22/12/2023")
+                                                .foregroundStyle(.invertedBK)
+                                            Spacer()
+                                            Text(services.status)
                                                 .padding()
-                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .foregroundStyle(.black)
+                                                .background(RoundedRectangle(cornerRadius: 16).fill(.green).frame(width: 103, height: 32))
                                             
-                                            HStack(alignment: .bottom){
-                                                Label(
-                                                    title: {
-                                                        Text("\(services.address)")
-                                                            .font(.callout)
-                                                            .foregroundStyle(colorScheme == .light ? .black : .white)
-                                                    },
-                                                    icon: {
-                                                        Image(systemName: "location")
-                                                            .foregroundStyle(colorScheme == .light ? .black : .white)
-                                                    }
-                                                )
-                                                Spacer()
-                                            }.padding()
                                         }
                                         .padding()
-                                        .frame(width: 327, height: 200)
-                                        .background(RoundedRectangle(cornerRadius: 16).fill(.dashclr).shadow(radius: 1))
-                                        .padding()
-                                        
+                                        .frame(maxWidth: .infinity,alignment:.leading)
+                                        Text(services.description)
+                                            .font(.title3)
+                                            .bold()
+                                            .padding(.horizontal)
+                                            .frame(maxWidth: .infinity, alignment:.leading)
+                                            .foregroundStyle(.invertedBK)
+                                        Spacer()
                                     }
+                                    .padding()
+                                    .frame(width: 327, height: 200)
+                                    .background(RoundedRectangle(cornerRadius: 16).fill(.dashclr).shadow(radius: 1))
+                                    .padding()
                                     .onTapGesture(count: 1) {
                                         withAnimation {
                                             pickedNumber = services.id
@@ -84,6 +64,7 @@ struct ProviderHomeView: View {
                                 }
                             }
                         }
+                        
                     } else {
                         ForEach(vm.consumer){ consumers in
                             ForEach(vm.service) { services in
@@ -110,6 +91,7 @@ struct ProviderHomeView: View {
                             }
                         }
                     }
+                    
                 }
                 .padding(.horizontal)
             }

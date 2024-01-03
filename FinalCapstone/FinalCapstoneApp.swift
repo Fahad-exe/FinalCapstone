@@ -17,7 +17,7 @@ struct FinalCapstoneApp: App {
     var body: some Scene {
         WindowGroup {
             if Entered == true{
-                ProviderRootView()
+                CustomerRootView()
                     .preferredColorScheme(isDarkMode ? .dark : .light)
             } else {
                 OnBoardingView(Entered: $Entered)

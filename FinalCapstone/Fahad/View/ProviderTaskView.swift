@@ -23,7 +23,7 @@ struct ProviderTaskView: View {
                     .bold()
                 if pickedNumber == nil {
                     VStack {
-                        Text("Open Tasks")
+                        Text("Open_Tasks")
                             .foregroundStyle(.black.opacity(0.4))
                             .padding()
                             .frame(maxWidth: .infinity,alignment: .leading)
@@ -63,7 +63,7 @@ struct ProviderTaskView: View {
                                 .matchedGeometryEffect(id: services.id, in: namespace)
                             }
                         }
-                        Text("In Progress Tasks")
+                        Text("In_Progress_Tasks")
                             .foregroundStyle(.black.opacity(0.4))
                             .padding()
                             .frame(maxWidth: .infinity,alignment: .leading)
@@ -105,7 +105,7 @@ struct ProviderTaskView: View {
                             }
                         }
                         
-                        Text("Completed Tasks")
+                        Text("Completed_Tasks")
                             .foregroundStyle(.black.opacity(0.4))
                             .padding()
                             .frame(maxWidth: .infinity,alignment: .leading)

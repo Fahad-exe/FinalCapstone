@@ -12,10 +12,18 @@ struct CostumerTaskView: View {
                     
 
                 VStack{
-                    Text(NSLocalizedString("add_new_order", comment: ""))
-                        .multilineTextAlignment(.center)
-                        .font(.title2)
+                    HStack {
+                        Text(NSLocalizedString("add_new_order", comment: ""))
+                            .multilineTextAlignment(.center)
+                            .font(.title2)
                         .padding()
+                        NavigationLink(destination: OrderServiceView()){
+                            Image(systemName: "plus")
+                                .foregroundStyle(colorScheme == .light ? .black : Color("btn"))
+                                .padding()
+                            
+                        }
+                    }
                     
                     //                        ForEach(vm.service){ services in
                     //                            VStack{
@@ -73,37 +81,6 @@ struct CostumerTaskView: View {
                     //                            .padding()
                     //                        }
                     VStack{
-                        VStack{
-                            HStack{
-                                Text("22/12/2023")
-                                    .foregroundStyle(.invertedBK)
-                                Spacer()
-                                Text("⏲ 2H")
-                                    .foregroundStyle(.BK)
-                                    .background(RoundedRectangle(cornerRadius: 16).fill(.invertedBK).frame(width: 72, height: 32))
-                                    .padding(.horizontal)
-                                Text("In progress")
-                                    .foregroundStyle(.black)
-                                    .background(RoundedRectangle(cornerRadius: 16).fill(.yellow).frame(width: 103, height: 32))
-                                
-                            }
-                            .padding()
-                            .frame(maxWidth: .infinity,alignment:.leading)
-                            Text("AC condesner with 3 outdoor units maintance")
-                                .font(.title3)
-                                .bold()
-                                .padding(.horizontal)
-                                .frame(maxWidth: .infinity, alignment:.leading)
-                                .foregroundStyle(.invertedBK)
-                            Text("16 hours left")
-                                .bold()
-                                .padding(.horizontal)
-                                .foregroundStyle(.red)
-                                .frame(maxWidth: .infinity,alignment: .leading)
-                        }
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 16).fill(.dashclr).shadow(radius: 1))
-                        .padding()
                         Text("Completed Tasks")
                             .foregroundStyle(.black.opacity(0.4))
                             .padding()

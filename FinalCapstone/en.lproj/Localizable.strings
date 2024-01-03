@@ -51,7 +51,7 @@
 "available_tasks" = "Available Tasks";
 "welcome" = "Welcome, %@";
 "notifications" = "Notifications";
-"add_new_order" = "Want to order a service? Press on the + button above to add new order";
+"add_new_order" = "To order a service? Press on the +";
 "welcome" = "Welcome, %@";
 "demi" = "Demi";
 "replied_message" = "Replied your message: What time do you plan to arrive for the maintena.";
@@ -83,3 +83,6 @@
 "feedback_provider" = "Feedback about the consumer";
 "feedback_consumer" = "Give us your opinion about the service";
 "finish" = "Finish Task";
+"Completed_Tasks" = "Completed Tasks";
+"In_Progress_Tasks" = "In Progress Tasks";
+"Open_Tasks" = "Open Tasks";

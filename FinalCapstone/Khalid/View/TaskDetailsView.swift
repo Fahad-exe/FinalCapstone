@@ -25,10 +25,11 @@ struct TaskDetailsView: View {
                             
                             VStack(alignment: .leading){
                                 HStack{
-                                    Image(systemName: "person")
+                                    
                                     NavigationLink {
                                         DashBoardView()
                                     } label: {
+                                        
                                         Text("\(customerName ?? "nill")")
                                             .foregroundStyle(colorScheme == .light ? .black : .white)
                                     }

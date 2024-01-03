@@ -53,65 +53,22 @@ struct MapView: View {
                     VStack{
                         Rectangle()
                             .frame(width: 30, height: 2)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.invertedBK)
                             .padding()
+                        Spacer()
                         Text((selectedPlace?.MainAddress)!)
                             .bold()
                             .frame(maxWidth: 350,alignment:.leading)
-                        
+                            
                         Text((selectedPlace?.StreetAddress)!)
                             .font(.caption)
                             .frame(maxWidth: 350,alignment:.leading)
                         Text((selectedPlace?.portsAvailable)!)
                             .font(.caption)
                             .frame(maxWidth: 350,alignment:.leading)
-                        
-                        VStack{
-                            HStack{
-                                Image(systemName: "cable.coaxial")
-                                VStack{
-                                    Text((selectedPlace?.portType)!)
-                                        .frame(maxWidth: 350,alignment:.leading)
-                                    Text("Port Type")
-                                        .frame(maxWidth: 350,alignment:.leading)
-                                        .font(.footnote)
-                                        .foregroundStyle(.gray.opacity(0.8))
-                                }
-                            }
-                            .frame(maxWidth: 350,alignment:.leading)
-                            Divider()
-                            HStack{
-                                Image(systemName: "dollarsign.circle")
-                                VStack{
-                                    Text((selectedPlace?.cost)!)
-                                        .frame(maxWidth: 350,alignment:.leading)
-                                    Text("Cost")
-                                        .font(.footnote)
-                                        .foregroundStyle(.gray.opacity(0.8))
-                                        .frame(maxWidth: 350,alignment:.leading)
-                                }
-                                
-                            }
-                            .frame(maxWidth: 350,alignment:.leading)
-                            Divider()
-                            HStack{
-                                Image(systemName: "bolt.circle")
-                                VStack{
-                                    Text((selectedPlace?.Power)!)
-                                        .frame(maxWidth: 350,alignment:.leading)
-                                    Text("Power")
-                                        .frame(maxWidth: 350,alignment:.leading)
-                                        .font(.footnote)
-                                        .foregroundStyle(.gray.opacity(0.8))
-                                }
-                            }
-                            .frame(maxWidth: 350,alignment:.leading)
-                          
-                        }
-                        .frame(maxWidth: 350,alignment:.leading)
-                        .padding(.horizontal)
-                        .background(RoundedRectangle(cornerRadius: 8).fill(Color("bck")).stroke(Color(.white), lineWidth:2).frame(width: 350, height: 200))
-                        .padding()
+                        Spacer()
+                    
+                       
                         Button {
                             openURL(URL(string: "comgooglemaps://?saddr=&daddr=RHZA2943,Riyadh&directionsmode=driving")!)
                         } label: {
@@ -119,15 +76,16 @@ struct MapView: View {
                                 
                         }
                         .padding(32)
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.BK)
                         .background(RoundedRectangle(cornerRadius: 8).fill(.green).frame(width: 350, height: 50))
                         
 
                     }
                     .presentationDetents([.medium])
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.invertedBK)
                     .background(Color("bck"))
+                    .frame(maxHeight: .infinity,alignment:.top)
                 }
                 .mapControls {
                     MapUserLocationButton()

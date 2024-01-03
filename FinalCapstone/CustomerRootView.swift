@@ -43,7 +43,7 @@ struct CustomerRootView: View {
                             }
                             .tag(3)
                         
-                        ProfileView()
+                        CustomerProfileView()
                             .tabItem {
                                 Image(systemName: "person")
                                 Circle()

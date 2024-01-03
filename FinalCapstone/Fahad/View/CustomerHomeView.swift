@@ -10,6 +10,8 @@ import SwiftUI
 struct CustomerHomeView: View {
     @State  var rectangleSize: CGSize = CGSize(width: 400, height: 324)
     @State  var dragOffset: CGSize = .zero
+    @State var pickedNumber: UUID?
+    @Namespace var namespace
     @StateObject var vm = ViewModel()
     var body: some View {
         
@@ -58,95 +60,79 @@ struct CustomerHomeView: View {
                 //                )
                 .padding(.vertical)
                 
-                VStack{
-                    HStack{
-                        Text("22/12/2023")
-                            .foregroundStyle(.invertedBK)
-                        Spacer()
-                        Text("⏲ 2H")
-                            .foregroundStyle(.BK)
-                            .background(RoundedRectangle(cornerRadius: 16).fill(.invertedBK).frame(width: 72, height: 32))
-                            .padding(.horizontal)
-                        Text("In progress")
-                            .foregroundStyle(.black)
-                            .background(RoundedRectangle(cornerRadius: 16).fill(.yellow).frame(width: 103, height: 32))
-                        
-                    }
-                    .padding()
-                    .frame(maxWidth: .infinity,alignment:.leading)
-                    Text("AC condesner with 3 outdoor units maintance")
-                        .font(.title3)
-                        .bold()
-                        .padding(.horizontal)
-                        .frame(maxWidth: .infinity, alignment:.leading)
-                        .foregroundStyle(.invertedBK)
-                    Text("16 hours left")
-                        .bold()
-                        .padding(.horizontal)
-                        .foregroundStyle(.red)
-                        .frame(maxWidth: .infinity,alignment: .leading)
-                }
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 16).fill(.dashclr).shadow(radius: 1))
-                .padding()
-                Text("Completed Tasks")
+                Text("Completed_Tasks")
                     .foregroundStyle(.black.opacity(0.4))
                     .padding()
                     .frame(maxWidth: .infinity,alignment: .leading)
-                ForEach(vm.service){ services in
-                    VStack{
-                        HStack{
-                            Text("22/12/2023")
-                                .foregroundStyle(.invertedBK)
-                            Spacer()
-                            
-                            Text(services.status)
-                                .foregroundStyle(.invertedBK)
-                                .background(RoundedRectangle(cornerRadius: 16).fill(.green.opacity(0.4)).frame(width: 103, height: 32))
-                            
-                        }
-                        .padding()
-                        .frame(maxWidth: .infinity,alignment:.leading)
-                        Text(services.description)
-                            .font(.title3)
-                            .bold()
-                            .padding(.horizontal)
-                            .frame(maxWidth: .infinity, alignment:.leading)
-                            .foregroundStyle(.invertedBK)
-                        Text("Completed at 20/12/2023")
-                            .bold()
-                            .padding(.horizontal)
-                            .padding(.vertical,8)
-                            .foregroundStyle(.green.opacity(0.8))
-                            .frame(maxWidth: .infinity,alignment: .leading)
-                        ForEach(vm.provider){ providers in
-                            HStack{
-                                Image(systemName: "person")
-                                    .padding(.horizontal)
+                if pickedNumber == nil {
+                    VStack {
+                        ForEach(vm.service){ services in
+                            if services.status == "Complete"{
                                 VStack{
-                                    Text(providers.name)
+                                    HStack{
+                                        Text("22/12/2023")
+                                            .foregroundStyle(.invertedBK)
+                                        Spacer()
+                                        Text(services.status)
+                                            .padding()
+                                            .foregroundStyle(.black)
+                                            .background(RoundedRectangle(cornerRadius: 16).fill(.green).frame(width: 103, height: 32))
+                                        
+                                    }
+                                    .padding()
+                                    .frame(maxWidth: .infinity,alignment:.leading)
+                                    Text("Completed at 23/12/2023")
+                                        .foregroundStyle(.green)
                                         .frame(maxWidth: .infinity,alignment:.leading)
+                                        .padding()
+                                    Text(services.description)
+                                        .font(.title3)
+                                        .bold()
+                                        .padding(.horizontal)
+                                        .frame(maxWidth: .infinity, alignment:.leading)
                                         .foregroundStyle(.invertedBK)
-                                    Text("\(providers.id)")
-                                        .frame(maxWidth: .infinity,alignment:.leading)
-                                        .foregroundStyle(.invertedBK)
+                                    Spacer()
                                 }
-                                
-                                
-                                Image(systemName: "star.fill")
-                                    .padding(.horizontal)
-                                    .foregroundStyle(.yellow)
-                                Text("4.7")
-                                    .foregroundStyle(.invertedBK)
-                                
-                                
+                                .padding()
+                                .frame(width: 327, height: 200)
+                                .background(RoundedRectangle(cornerRadius: 16).fill(.dashclr).shadow(radius: 1))
+                                .padding()
+                                .onTapGesture(count: 1) {
+                                    withAnimation {
+                                        pickedNumber = services.id
+                                    }
+                                    
+                                }
+                                .matchedGeometryEffect(id: services.id, in: namespace)
                             }
                         }
                     }
-                    .padding()
-                    .frame(width: 327, height: 200)
-                    .background(RoundedRectangle(cornerRadius: 16).fill(.dashclr).shadow(radius: 1))
-                    .padding()
+                    
+                } else {
+                    ForEach(vm.consumer){ consumers in
+                        ForEach(vm.service) { services in
+                            if pickedNumber == services.id {
+                                ZStack {
+                                    VStack{
+                                        Button(action: {
+                                            withAnimation {
+                                                pickedNumber = nil
+                                            }
+                                        }, label: {
+                                            Image(systemName: "chevron.backward")
+                                        })
+                                        .foregroundStyle(.orange)
+                                        .padding()
+                                        .frame(maxWidth: .infinity, alignment:.leading)
+                                        TaskDetailsView( customerName: consumers.name, serviceName: services.serviceName, servicePrice: services.price, serviceStatus: services.status, serviceDesc: services.description)
+                                    }
+                                    
+                                }
+                                .matchedGeometryEffect(id: services.id, in: namespace)
+                            }
+                            
+                        }
+                    }
                 }
             }
             

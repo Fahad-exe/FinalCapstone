@@ -18,7 +18,7 @@ struct DashBoardView: View {
             LazyVStack{
                 ForEach(vm.consumer) { consumers in
                     VStack{
-                        Image("conusmer")
+                        Image("consumer")
                             .resizable().aspectRatio(contentMode: .fit)
                             .frame(width: 80, height: 80)
                             .padding(.top,16)
