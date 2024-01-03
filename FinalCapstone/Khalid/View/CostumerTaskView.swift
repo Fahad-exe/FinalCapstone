@@ -15,12 +15,12 @@ struct CostumerTaskView: View {
                 VStack{
                     HStack {
                         Text(NSLocalizedString("add_new_order", comment: ""))
-                            .multilineTextAlignment(.trailing)
-                            .font(.title2)
+                            .multilineTextAlignment(.center)
+                            .font(.title3)
                         .padding()
                         NavigationLink(destination: OrderServiceView()){
                             Image(systemName: "plus")
-                                .foregroundStyle(colorScheme == .light ? .black : Color("btn"))
+                                .foregroundStyle(.orange)
                                 .padding()
                             
                         }
